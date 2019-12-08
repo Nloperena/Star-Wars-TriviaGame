@@ -1,0 +1,20 @@
+body {
+    background-image: linear-gradient(to left, #D74177, #FFE98A);
+    font-family: 'Permanent Marker', cursive;
+}
+
+#container1{
+    margin-top: 7rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding-bottom: 3rem;
+    opacity: 0.9;
+}
+
+#container2{
+    margin-top: 8rem;
+    background-color:white;
+    padding:1.7rem;
+    border-radius: 1.3rem;
+    opacity: 0.9;
+}
