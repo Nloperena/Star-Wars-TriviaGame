@@ -37,10 +37,17 @@ var questions = {
 var game = {
     questions: questions,
     counter: countStart,
-    currentQuestion: 0,
+    questionIndex: 0,
     correct: 0,
     incorrect: 0,
 
+    
+    timeOut: function() {
+        clearInterval(window.timer);
+        quizCard.html('<h1> TIME OUT! </h1>');
+        quizCard.append('<h2> The correct answer was: ' + questions[this.questionIndex].ca);
+    },
+    
     countdown: function(){
         this.counter--
         $('#timer').text(this.counter);
