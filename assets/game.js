@@ -1,50 +1,50 @@
 var card = $("#quiz-area");
-var countStartNumber = 30;
+var countStartNumber = 10;
 var start = $('#start');
 var questiondude = $('#question-holder');
 
 
 // Question set
 var questions = [{
-  question: "What was the first full length CGI movie?",
-  answers: ["A Bug's Life", "Monsters Inc.", "Toy Story", "The Lion King"],
-  correctAnswer: "Toy Story",
-  image: "assets/images/toystory.gif"
+  question: "Who is the main antagonist of Episode IV?",
+  answers: ["Darth Maul", "Darth Vader", "Darth Jar Jar", "Luke Skywalker"],
+  correctAnswer: "Darth Vader",
+  image: "assets/images/Vadergiphy.gif"
 }, {
-  question: "Which of these is NOT a name of one of the Spice Girls?",
-  answers: ["Sporty Spice", "Fred Spice", "Scary Spice", "Posh Spice"],
-  correctAnswer: "Fred Spice",
-  image: "assets/images/spicegirls.gif"
+  question: "Which Star Wars episode came out first?",
+  answers: ["III", "V", "IV", "VI"],
+  correctAnswer: "IV",
+  image: "assets/images/Deathgiphy.gif"
 }, {
-  question: "Which NBA team won the most titles in the 90s?",
-  answers: ["New York Knicks", "Portland Trailblazers", "Los Angeles Lakers", "Chicago Bulls"],
-  correctAnswer: "Chicago Bulls",
-  image: "assets/images/bulls.gif"
+  question: "What a Mandalorian?",
+  answers: ["Merchant", "A mount", "Jedi", "Bounty Hunter"],
+  correctAnswer: "Bounty Hunter",
+  image: "assets/images/Boba.gif"
 }, {
-  question: "Which group released the hit song, 'Smells Like Teen Spirit'?",
-  answers: ["Nirvana", "Backstreet Boys", "The Offspring", "No Doubt"],
-  correctAnswer: "Nirvana",
-  image: "assets/images/nirvanabark.gif"
+  question: "How old is baby Yoda?",
+  answers: ["55-years-old", "500-years-old", "5-years-old", "50-years-old"],
+  correctAnswer: "50-years-old",
+  image: "assets/images/baby.gif"
 }, {
-  question: "Which popular Disney movie featured the song, \"Circle of Life\"?",
-  answers: ["Aladdin", "Hercules", "Mulan", "The Lion King"],
-  correctAnswer: "The Lion King",
-  image: "assets/images/lionking.gif"
+  question: "Who created Star Wars?",
+  answers: ["George Lucas", "Lucas Spookus", "JJ Abrams", "Jar Jar Binks"],
+  correctAnswer: "George Lucas",
+  image: "assets/images/lucas.gif"
 }, {
-  question: "Finish this line from the Fresh Prince of Bel-Air theme song: \"I whistled for a cab and when it came near, the license plate said...\"",
-  answers: ["Dice", "Mirror", "Fresh", "Cab"],
-  correctAnswer: "Fresh",
-  image: "assets/images/fresh.gif"
+  question: "What color lightsaber does Windu use?",
+  answers: ["Purple", "Blue", "Black", "Red"],
+  correctAnswer: "Purple",
+  image: "assets/images/windu.gif"
 }, {
-  question: "What was Doug's best friend's name?",
-  answers: ["Skeeter", "Mark", "Zach", "Cody"],
-  correctAnswer: "Skeeter",
-  image: "assets/images/skeeter.gif"
+  question: "Who is Han Solo's right hand man?",
+  answers: ["Ed", "Mark", "Jerry", "Chewbacca"],
+  correctAnswer: "Chewbacca",
+  image: "assets/images/Chewygiphy.gif"
 }, {
-  question: "What was the name of the principal at Bayside High in Saved By The Bell?",
-  answers: ["Mr.Zhou", "Mr.Driggers", "Mr.Belding", "Mr.Page"],
-  correctAnswer: "Mr.Belding",
-  image: "assets/images/belding.gif"
+  question: "How long has yoda trained Jedi for?",
+  answers: ["990 years", "90 years", "900 years", "9000 years"],
+  correctAnswer: "900 years",
+  image: "assets/images/yoda.gif"
 }];
 
 //===========================================================================
@@ -70,15 +70,15 @@ var game = {
   },
 
   loadQuestion: function() {
-
+    
     timer = setInterval(game.countdown, 1000);
 
     questiondude.html("<h6>" + questions[this.currentQuestion].question + "</h6>");
 
     start.remove();
-
+    $('#container2').remove();
     for (var i = 0; i < questions[this.currentQuestion].answers.length; i++) {
-      card.append("<a class='answer-button btn' id='button' data-name='" + questions[this.currentQuestion].answers[i]
+      questiondude.append("<a class='answer-button waves-effect waves-light purple btn ' id='button' data-name='" + questions[this.currentQuestion].answers[i]
       + "'>" + questions[this.currentQuestion].answers[i] + "</a>");
     }
   },
@@ -96,9 +96,9 @@ var game = {
 
     $("#counter-number").html(game.counter);
 
-    card.html("<h3>Out of Time!</h3>");
-    card.append("<h6>The Correct Answer was: " + questions[this.currentQuestion].correctAnswer);
-    card.append("<img src='" + questions[this.currentQuestion].image + "' />");
+    questiondude.html("<h3>Out of Time!</h3>");
+    questiondude.append("<h6>The Correct Answer was: " + questions[this.currentQuestion].correctAnswer);
+    questiondude.append("<img id= 'gif' src='" + questions[this.currentQuestion].image + "' />");
 
     if (game.currentQuestion === questions.length - 1) {
       setTimeout(game.results, 3 * 1000);
@@ -112,14 +112,14 @@ var game = {
 
     clearInterval(timer);
 
-    card.html("<h5>All done, heres how you did!</h5>");
+    questiondude.html("<h5>All done, heres how you did!</h5>");
 
     $("#counter-number").text(game.counter);
 
-    card.append("<p>Correct Answers: " + game.correct + "</p>");
-    card.append("<p>Incorrect Answers: " + game.incorrect + "</p>");
-    card.append("<p>Unanswered: " + (questions.length - (game.incorrect + game.correct)) + "</p>");
-    card.append("<br><a class = 'btn green' id='start-over'>Start Over?</a>");
+    questiondude.append("<p>Correct Answers: " + game.correct + "</p>");
+    questiondude.append("<p>Incorrect Answers: " + game.incorrect + "</p>");
+    questiondude.append("<p>Unanswered: " + (questions.length - (game.incorrect + game.correct)) + "</p>");
+    questiondude.append("<br><a class = 'btn green' id='start-over'>Start Over?</a>");
   },
 
   clicked: function(e) {
@@ -138,15 +138,17 @@ var game = {
 
     clearInterval(timer);
 
-    card.html("<h5>Nope!</h5>");
-    card.append("<h6>The Correct Answer was: " + questions[game.currentQuestion].correctAnswer + "</h6>");
-    card.append("<img src='" + questions[game.currentQuestion].image + "' />");
+    questiondude.html("<h5>Nope!</h5>");
+    questiondude.append("<h6>The Correct Answer was: " + questions[game.currentQuestion].correctAnswer + "</h6>");
+    questiondude.append("<img id='gif' src='" + questions[game.currentQuestion].image + "' />");
+
+    
 
     if (game.currentQuestion === questions.length - 1) {
-      setTimeout(game.results, 3 * 1000);
+      setTimeout(game.results, 8 * 1000);
     }
     else {
-      setTimeout(game.nextQuestion, 3 * 1000);
+      setTimeout(game.nextQuestion, 8 * 1000);
     }
   },
 
@@ -156,14 +158,14 @@ var game = {
 
     game.correct++;
 
-    card.html("<h5>Correct!</h5>");
-    card.append("<img src='" + questions[game.currentQuestion].image + "' />");
+    questiondude.html("<h5>Correct!</h5>");
+    questiondude.append("<img id='gif' src='" + questions[game.currentQuestion].image + "' />");
 
     if (game.currentQuestion === questions.length - 1) {
-      setTimeout(game.results, 3 * 1000);
+      setTimeout(game.results, 5 * 1000);
     }
     else {
-      setTimeout(game.nextQuestion, 3 * 1000);
+      setTimeout(game.nextQuestion, 5 * 1000);
     }
   },
 
@@ -187,6 +189,6 @@ $(document).on("click", ".answer-button", function(e) {
 });
 
 $(document).on("click", "#start", function() {
-  $("#sub-wrapper").prepend("<h5>Time Remaining: <span id='counter-number'>30</span> Seconds</h5>");
+  $("#sub-wrapper").prepend("<h5>Time Remaining: <span id='counter-number'>10</span> Seconds</h5>");
   game.loadQuestion();
 });

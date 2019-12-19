@@ -1,20 +1,37 @@
 body {
-    background-image: linear-gradient(to left, #D74177, #FFE98A);
-    font-family: 'Permanent Marker', cursive;
+    background-image: url(../images/stars.jpg);
+    min-height: 100%;
+    font-family:  'Stardos Stencil', cursive;
+    color: white;
 }
 
 #container1{
     margin-top: 5rem;
-    background-color: #ffffff;
+    background-color: rgb(73, 73, 73);
     border-radius: 1rem;
     padding-bottom: 3rem;
-    opacity: 0.9;
+    opacity: 0.95;
+    box-shadow: 0px 2px 0px 3px #FFE919;
 }
 
 #container2{
     margin-top: 8rem;
-    background-color:white;
+    background-color: rgb(73, 73, 73);
     padding:1.7rem;
     border-radius: 1.3rem;
-    opacity: 0.9;
+    opacity: 0.95;
+    box-shadow: 10px 4px 2px 0px 3px rgb(133, 120, 11);
+}
+
+#gif {
+    width: 20rem;
+    height: 13rem;
+    border-radius: 1.3rem;
+}
+
+#logo {
+    margin: 2rem;
+    width: 20rem;
+    height: 13rem;
+    border-radius: 1.3rem;
 }
