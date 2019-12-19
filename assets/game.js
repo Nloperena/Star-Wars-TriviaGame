@@ -16,7 +16,7 @@ var questions = [{
   correctAnswer: "IV",
   image: "assets/images/Deathgiphy.gif"
 }, {
-  question: "What a Mandalorian?",
+  question: "What is a Mandalorian?",
   answers: ["Merchant", "A mount", "Jedi", "Bounty Hunter"],
   correctAnswer: "Bounty Hunter",
   image: "assets/images/Boba.gif"
